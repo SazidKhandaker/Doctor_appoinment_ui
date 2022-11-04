@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:doctorappoinment/FirstPage/appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SecondHomepage extends StatefulWidget {
@@ -14,6 +12,23 @@ class SecondHomepage extends StatefulWidget {
 }
 
 class _SecondHomepageState extends State<SecondHomepage> {
+  List Mylist = [
+    [
+      "images/Videocall.png",
+      false,
+    ],
+    [
+      "images/Phone.png",
+      true,
+    ],
+    ["images/Mic.png", false],
+  ];
+  List mylist2 = [
+    ["images/Menu.png", false],
+    ["images/Location.png", false],
+    ["images/Chat.png", false],
+    ["images/More.png", false],
+  ];
   var sound = 10;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +40,7 @@ class _SecondHomepageState extends State<SecondHomepage> {
           color: Colors.blue.shade900.withOpacity(0.9),
           child: Stack(children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.8,
+              height: MediaQuery.of(context).size.height * 0.81,
               width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -94,7 +109,7 @@ class _SecondHomepageState extends State<SecondHomepage> {
                   ),
 
                   Positioned(
-                    top: 300,
+                    top: MediaQuery.of(context).size.height * 0.38,
                     right: 0,
                     child: Transform.rotate(
                       angle: pi / 0.6666,
@@ -157,9 +172,146 @@ class _SecondHomepageState extends State<SecondHomepage> {
                           )),
                     ),
                   ),
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.48,
+                    left: MediaQuery.of(context).size.width * 0.03,
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dr. Perrin P.",
+                            style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            "Neurologist",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.555),
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: Mylist.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      if (Mylist[index][1] == false) {
+                                        Mylist[index][1] = true;
+                                      } else {
+                                        Mylist[index][1] = false;
+                                      }
+                                    });
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.all(4),
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.16,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(14),
+                                    ),
+                                    child: Center(
+                                      child: Image.asset(Mylist[index][0],
+                                          color: Mylist[index][1] == false
+                                              ? Colors.grey
+                                              : Colors.green.shade400,
+                                          fit: BoxFit.cover,
+                                          height: Mylist[index][1] == true
+                                              ? MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.06
+                                              : MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.055),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            })),
+                  ),
+                  Positioned(
+                    bottom: MediaQuery.of(context).size.height * 0.03,
+                    left: MediaQuery.of(context).size.width / 4,
+                    child: Text(
+                      "Swipe down to hind menu",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+            Container(
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.82),
+                height: MediaQuery.of(context).size.height * 0.11,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: mylist2.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding:
+                            EdgeInsets.only(top: 25.0, left: 25, right: 25),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (mylist2[index][1] == false) {
+                                mylist2[index][1] = true;
+                              } else {
+                                mylist2[index][1] = false;
+                              }
+                            });
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            decoration: BoxDecoration(
+                              color: Colors.blue.shade900.withOpacity(0.9),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Center(
+                                child: Image.asset(
+                              mylist2[index][0],
+                              fit: BoxFit.cover,
+                              height: mylist2[index][1] == true
+                                  ? MediaQuery.of(context).size.height * 0.039
+                                  : MediaQuery.of(context).size.height * 0.037,
+                              color: mylist2[index][1] == true
+                                  ? Colors.green.shade300
+                                  : Colors.white,
+                            )),
+                          ),
+                        ),
+                      );
+                    }))
           ]),
         ),
       ),

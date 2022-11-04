@@ -8,7 +8,7 @@ class MapLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 5),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.400,
         width: double.infinity,

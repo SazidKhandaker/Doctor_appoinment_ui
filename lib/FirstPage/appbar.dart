@@ -16,9 +16,13 @@ class AppBarSide extends StatelessWidget {
             color: Color(0xffFFFFFF),
             boxShadow: [
               BoxShadow(
-                  blurRadius: 2, offset: Offset(1, 1), color: Colors.black),
+                  blurRadius: 2,
+                  offset: Offset(1, 1),
+                  color: Colors.black.withOpacity(0.1)),
               BoxShadow(
-                  blurRadius: 2, offset: Offset(-1, -1), color: Colors.black),
+                  blurRadius: 2,
+                  offset: Offset(-1, -1),
+                  color: Colors.black.withOpacity(0.1)),
             ],
             borderRadius: BorderRadius.circular(6)),
         child: Center(

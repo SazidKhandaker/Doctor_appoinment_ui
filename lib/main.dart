@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Secondpage/secondhomepage.dart';
 import 'homepage.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Homepage(),
+      home: SecondHomepage(),
     );
   }
 }

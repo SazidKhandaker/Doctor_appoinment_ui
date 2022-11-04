@@ -56,9 +56,14 @@ class _SecondHomepageState extends State<SecondHomepage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                          margin: EdgeInsets.only(bottom: 100),
-                          child: AppBarSide()),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                            margin: EdgeInsets.only(bottom: 100),
+                            child: AppBarSide()),
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
@@ -305,7 +310,7 @@ class _SecondHomepageState extends State<SecondHomepage> {
                                   ? MediaQuery.of(context).size.height * 0.039
                                   : MediaQuery.of(context).size.height * 0.037,
                               color: mylist2[index][1] == true
-                                  ? Colors.green.shade300
+                                  ? Colors.green.shade200
                                   : Colors.white,
                             )),
                           ),
